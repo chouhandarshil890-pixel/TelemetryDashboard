@@ -9,7 +9,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Add your teammates' cities here
 const cityCoords = {
     "Ratlam": [23.3315, 75.0367],
-    "Kharagpur": [22.3460, 87.2320]
+    "Nashik": [19.987477, 73.768667],
+    "Dilli ": [28.7041, 77.1025]
 };
 
 const markers = {};
