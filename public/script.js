@@ -22,7 +22,7 @@ socket.on('telemetry', (data) => {
 
     if (!rows[data.node]) {
         const row = document.createElement('tr');
-        row.innerHTML = `<td>${data.node}</td><td>${data.city}</td><td>${data.temperature}</td><td>${data.humidity}</td>`;
+        row.innerHTML = `<td>${data.node}</td><td>${data.city.trim()}</td><td>${data.temperature}</td><td>${data.humidity}</td>`;
         tableBody.appendChild(row);
         rows[data.node] = row;
     } else {
@@ -30,7 +30,7 @@ socket.on('telemetry', (data) => {
         rows[data.node].children[3].textContent = data.humidity;
     }
 
-    const coords = cityCoords[data.city];
+    const coords = cityCoords[data.city.trim()];
     if (coords) {
         if (!markers[data.node]) {
             markers[data.node] = L.marker(coords).addTo(map);
@@ -39,9 +39,4 @@ socket.on('telemetry', (data) => {
             `<div class="leaflet-popup-content"><b>${data.node}</b><br>${data.city}<br>${data.temperature}°C, ${data.humidity}%</div>`
         );
     }
-});
-const PORT = 3000;
-
-server.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
 });
