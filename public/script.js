@@ -10,7 +10,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const cityCoords = {
     "Ratlam": [23.3315, 75.0367],
     "Nashik": [19.987477, 73.768667],
-    "Dilli ": [28.7041, 77.1025]
+    "Dilli": [28.7041, 77.1025]
 };
 
 const markers = {};
