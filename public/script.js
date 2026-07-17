@@ -22,14 +22,13 @@ socket.on('telemetry', (data) => {
 
     if (!rows[data.node]) {
         const row = document.createElement('tr');
-       row.innerHTML = `<td>${data.node}</td><td>${data.city.trim()}</td><td>${data.temperature}</td><td>${data.humidity}</td><td>${data.wifi_networks}</td><td>${data.avg_rssi}</td>`;
+        row.innerHTML = `<td>${data.node}</td><td>${data.city.trim()}</td><td>${data.temperature}</td><td>${data.humidity}</td><td>${data.rf_noise}</td>`;
         tableBody.appendChild(row);
         rows[data.node] = row;
     } else {
         rows[data.node].children[2].textContent = data.temperature;
         rows[data.node].children[3].textContent = data.humidity;
-        rows[data.node].children[4].textContent = data.wifi_networks;
-        rows[data.node].children[5].textContent = data.avg_rssi;
+        rows[data.node].children[4].textContent = data.rf_noise;
     }
 
     const coords = cityCoords[data.city.trim()];
